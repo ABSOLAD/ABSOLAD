@@ -26,17 +26,10 @@ body{position:relative;isolation:isolate;background:#0b0f14}
 
 
 
-/* Clickable sports car drifting across the bottom of the portfolio */
-.drift-car{position:fixed;right:18px;bottom:24px;width:190px;height:92px;z-index:5;display:block;pointer-events:auto;animation:drift-across 18s linear infinite;filter:drop-shadow(0 7px 8px rgba(0,0,0,.55))}
-.drift-car svg{position:absolute;right:0;bottom:0;width:180px;height:82px;overflow:visible;transform:rotate(-7deg);transform-origin:50% 75%;animation:car-slide .55s ease-in-out infinite alternate}
-.drift-car:hover svg{filter:drop-shadow(0 0 9px rgba(255,90,70,.7))}
-.car-hint{position:absolute;right:0;bottom:88px;white-space:nowrap;font:9px "DM Mono",monospace;letter-spacing:.1em;color:#fff;background:rgba(8,12,17,.8);padding:5px 8px;border:1px solid rgba(255,255,255,.2);border-radius:3px;opacity:0;transition:opacity .2s}
-.drift-car:hover .car-hint,.drift-car:focus-visible .car-hint{opacity:1}
-.tire-smoke{position:absolute;left:0;bottom:16px;width:22px;height:22px;border-radius:50%;background:rgba(225,232,238,.58);filter:blur(5px);animation:smoke-drift 1.5s ease-out infinite}
-.smoke-two{left:15px;bottom:24px;animation-delay:.45s;width:17px;height:17px}
-.smoke-three{left:28px;bottom:12px;animation-delay:.9s;width:14px;height:14px}
-@keyframes drift-across{0%{transform:translateX(0) rotate(0)}12%{transform:translateX(-12vw) rotate(-5deg)}28%{transform:translateX(-32vw) rotate(5deg)}48%{transform:translateX(-55vw) rotate(-6deg)}70%{transform:translateX(-78vw) rotate(5deg)}100%{transform:translateX(calc(-100vw - 230px)) rotate(0)}}
-@keyframes car-slide{from{translate:0 1px;rotate:-3deg}to{translate:0 -3px;rotate:3deg}}
-@keyframes smoke-drift{0%{transform:translate(0,0) scale(.5);opacity:0}25%{opacity:.55}100%{transform:translate(-38px,-28px) scale(2.2);opacity:0}}
-@media(hover:none){.car-hint{opacity:1}}
-@media(prefers-reduced-motion:reduce){.drift-car{animation:none;left:auto;right:18px}.drift-car svg,.tire-smoke{animation:none}.tire-smoke{display:none}}
+
+/* Tiny pixel car cruising along the bottom edge */
+.pixel-car{position:fixed;left:-58px;bottom:2px;width:52px;height:28px;display:block;z-index:6;cursor:pointer;image-rendering:pixelated;animation:pixel-car-drive 48s linear infinite;filter:drop-shadow(1px 2px 1px rgba(0,0,0,.7))}
+.pixel-car svg{display:block;width:100%;height:100%;image-rendering:pixelated}
+.pixel-car:focus-visible{outline:2px solid #fff;outline-offset:4px}
+@keyframes pixel-car-drive{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 70px))}}
+@media(prefers-reduced-motion:reduce){.pixel-car{animation:none;left:auto;right:8px}}
