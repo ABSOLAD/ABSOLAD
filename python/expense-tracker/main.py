@@ -1,75 +1,85 @@
-"""A tiny CSV-based command-line expense tracker."""
+"""Tkinter expense tracker backed by a local SQLite database."""
 
-import csv
-from datetime import date
-from pathlib import Path
-
-DATA_FILE = Path(__file__).with_name("expenses.csv")
-FIELDS = ["date", "category", "amount", "note"]
+import tkinter as tk
+from tkinter import messagebox, ttk
+from database import add_expense, get_expenses, get_total, initialize_database
 
 
-def add_expense() -> None:
-    category = input("Category: ").strip()
-    if not category:
-        print("Category cannot be empty.")
-        return
-    try:
-        amount = float(input("Amount: "))
-        if amount <= 0:
-            raise ValueError
-    except ValueError:
-        print("Enter an amount greater than zero.")
-        return
+class ExpenseTracker:
+    def __init__(self, root: tk.Tk) -> None:
+        self.root = root
+        root.title("ABSOLAD | Expense Tracker")
+        root.geometry("760x540")
+        root.configure(bg="#111827")
 
-    note = input("Note (optional): ").strip()
-    new_file = not DATA_FILE.exists()
-    with DATA_FILE.open("a", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=FIELDS)
-        if new_file:
-            writer.writeheader()
-        writer.writerow({
-            "date": date.today().isoformat(),
-            "category": category,
-            "amount": f"{amount:.2f}",
-            "note": note,
-        })
-    print("Expense saved.")
+        tk.Label(root, text="EXPENSE TRACKER", font=("Segoe UI", 20, "bold"),
+                 bg="#111827", fg="#f9fafb").pack(pady=(20, 4))
+        tk.Label(root, text="Your spending, organised.", font=("Segoe UI", 10),
+                 bg="#111827", fg="#9ca3af").pack(pady=(0, 18))
 
+        form = tk.Frame(root, bg="#1f2937", padx=16, pady=14)
+        form.pack(fill="x", padx=22)
+        self.category = tk.StringVar()
+        self.amount = tk.StringVar()
+        self.note = tk.StringVar()
 
-def show_summary() -> None:
-    if not DATA_FILE.exists():
-        print("No expenses recorded yet.")
-        return
+        for label, variable, width in [
+            ("Category", self.category, 20),
+            ("Amount", self.amount, 12),
+            ("Note", self.note, 25),
+        ]:
+            tk.Label(form, text=label, bg="#1f2937", fg="#e5e7eb").pack(
+                side="left", padx=(0, 5))
+            tk.Entry(form, textvariable=variable, width=width, bg="#374151",
+                     fg="white", insertbackground="white", relief="flat").pack(
+                side="left", padx=(0, 12), ipady=6)
 
-    total = 0.0
-    print("\nDate        Category             Amount")
-    print("-" * 44)
-    with DATA_FILE.open(newline="", encoding="utf-8") as file:
-        for row in csv.DictReader(file):
-            amount = float(row["amount"])
-            total += amount
-            print(f'{row["date"]:<12}{row["category"]:<21}{amount:>8.2f}')
-    print("-" * 44)
-    print(f"Total: {total:.2f}")
+        tk.Button(form, text="Add expense", command=self.add,
+                  bg="#2563eb", fg="white", relief="flat",
+                  padx=12, pady=7).pack(side="left")
 
+        columns = ("date", "category", "amount", "note")
+        self.table = ttk.Treeview(root, columns=columns, show="headings", height=13)
+        for column, heading, width in [
+            ("date", "DATE", 130), ("category", "CATEGORY", 180),
+            ("amount", "AMOUNT", 110), ("note", "NOTE", 280),
+        ]:
+            self.table.heading(column, text=heading)
+            self.table.column(column, width=width, anchor="w")
+        self.table.pack(fill="both", expand=True, padx=22, pady=18)
 
-def main() -> None:
-    while True:
-        print("\n=== Expense Tracker ===")
-        print("1. Add expense")
-        print("2. View expenses and total")
-        print("3. Exit")
-        choice = input("Choose an option: ").strip()
-        if choice == "1":
-            add_expense()
-        elif choice == "2":
-            show_summary()
-        elif choice == "3":
-            print("Goodbye!")
-            break
-        else:
-            print("Choose 1, 2 or 3.")
+        self.total_label = tk.Label(root, text="", font=("Segoe UI", 13, "bold"),
+                                    bg="#111827", fg="#34d399")
+        self.total_label.pack(pady=(0, 18))
+        self.refresh()
+
+    def add(self) -> None:
+        category = self.category.get().strip()
+        try:
+            amount = float(self.amount.get())
+            if not category or amount <= 0:
+                raise ValueError
+            add_expense(category, amount, self.note.get().strip())
+        except ValueError:
+            messagebox.showerror("Invalid expense",
+                                 "Enter a category and an amount greater than zero.")
+            return
+        self.category.set("")
+        self.amount.set("")
+        self.note.set("")
+        self.refresh()
+
+    def refresh(self) -> None:
+        for item in self.table.get_children():
+            self.table.delete(item)
+        for row in get_expenses():
+            self.table.insert("", "end", values=(
+                row["date"], row["category"], f'{row["amount"]:.2f}', row["note"]))
+        self.total_label.config(text=f"TOTAL SPENDING  |  {get_total():.2f}")
 
 
 if __name__ == "__main__":
-    main()
+    initialize_database()
+    app = tk.Tk()
+    ExpenseTracker(app)
+    app.mainloop()
