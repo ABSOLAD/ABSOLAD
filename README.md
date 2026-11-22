@@ -6,6 +6,8 @@
 
 Learning by building practical projects and improving them one commit at a time.
 
+[Portfolio](./portfolio) · [Projects](#-projects) · [Tech Stack](#-tools--technologies)
+
 </div>
 
 ---
@@ -14,42 +16,37 @@ Learning by building practical projects and improving them one commit at a time.
 
 - 🎓 Bachelor of Computer Applications (BCA) student
 - 🌱 Learning Java, Python, programming fundamentals and cybersecurity
-- 🧰 Exploring Git, GitHub, Linux and developer tools
-- 🎯 Focused on practical projects, problem solving and writing clear code
-- 🤝 Open to beginner-friendly collaboration and learning from the community
+- 🧰 Exploring Git, GitHub, Linux, desktop development and databases
+- 🎯 Interested in practical software, problem solving and secure coding
+- 🤝 Open to beginner-friendly collaboration and constructive feedback
 
 ## 🛠 Tools & Technologies
 
 ![Java](https://img.shields.io/badge/Java-learning-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-learning-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-learning-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML5-learning-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-learning-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-learning-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-using-181717?style=for-the-badge&logo=github&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-exploring-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
 ## 🚀 Projects
 
-| Project | Description | Stack |
+| Project | What it does | Stack |
 |---|---|---|
-| [Password Generator](./python/password-generator) | Generate random passwords with configurable length and character sets. | Python |
-| [Expense Tracker](./python/expense-tracker) | Record expenses in a local CSV file and view a summary. | Python |
-| [Student Records](./java/student-records) | Console-based student record manager. | Java |
+| [Password Generator](./python/password-generator) | Desktop password generator using Python's secure `secrets` module. | Python, Tkinter |
+| [Expense Tracker](./python/expense-tracker) | Desktop expense manager with persistent local storage. | Python, Tkinter, SQLite |
+| [Student Records](./java/student-records) | Desktop app to add, search and delete student records. | Java, Swing, file I/O |
+| [Developer Portfolio](./portfolio) | Responsive personal portfolio website. | HTML, CSS, JavaScript |
 
-These are starter learning projects. Planned improvements include automated tests, persistence, stronger validation and better documentation.
+## 🧪 Quality & Documentation
+
+- Unit tests for the Python password generator and expense database.
+- Project-specific setup instructions and limitations documented in each README.
+- GitHub Actions workflow checks Python tests and Java compilation.
 
 ## 📚 Currently Learning
 
-- Object-oriented programming
-- Data structures and problem solving
-- Python scripting
-- Java application development
-- Cybersecurity fundamentals
-- Git workflows and collaboration
-
-## 📈 GitHub Activity
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ABSOLAD&show_icons=true&theme=github_dark&hide_border=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ABSOLAD&layout=compact&theme=github_dark&hide_border=true)
+Object-oriented programming · Data structures · SQL · Web fundamentals · Cybersecurity fundamentals · Git workflows
 
 ---
 
