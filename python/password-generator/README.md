@@ -1,13 +1,14 @@
 # Password Generator
 
-A small command-line password generator built with Python's `secrets` module for secure random choices.
+A desktop password generator built with Python and Tkinter. It uses the standard-library `secrets` module rather than ordinary pseudo-random choices.
 
 ## Features
 
-- Choose password length.
-- Include uppercase, lowercase, digits and symbols.
-- Uses Python's cryptographically strong random source.
-- No third-party packages required.
+- Desktop interface with selectable character groups.
+- Password lengths from 8 to 128 characters.
+- Guarantees at least one character from each selected group.
+- Copy-to-clipboard button.
+- No third-party dependencies.
 
 ## Run
 
@@ -15,4 +16,14 @@ A small command-line password generator built with Python's `secrets` module for
 python main.py
 ```
 
-Use Python 3.8 or newer. This is a learning project; review generated passwords and store them in a reputable password manager.
+Python 3.8+ with Tkinter is required. On some Linux distributions, Tkinter is installed separately (for example, the `python3-tk` package).
+
+## Tests
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+## Security note
+
+This is a learning utility, not a password manager. Avoid sharing generated passwords or saving them in source code or screenshots.
