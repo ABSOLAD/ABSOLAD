@@ -22,3 +22,14 @@ body{position:relative;isolation:isolate;background:#0b0f14}
 .video-shade{position:fixed;inset:0;background:linear-gradient(90deg,rgba(5,9,13,.88),rgba(5,9,13,.62)),linear-gradient(0deg,rgba(5,9,13,.78),rgba(5,9,13,.25));z-index:-1;pointer-events:none}
 .nav,.hero,.section,footer{position:relative}
 @media(prefers-reduced-motion:reduce){.background-video{display:none}}
+
+
+/* Tiny pixel hiker wandering across the mountain scene */
+.pixel-walker{position:fixed;left:-48px;bottom:18px;width:40px;height:50px;z-index:2;pointer-events:none;image-rendering:pixelated;animation:pixel-travel 32s linear infinite}
+.pixel-walker svg{width:100%;height:100%;image-rendering:pixelated;filter:drop-shadow(2px 3px 2px rgba(0,0,0,.55));animation:pixel-bob .42s steps(2,end) infinite alternate}
+@keyframes pixel-travel{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 100px))}}
+@keyframes pixel-bob{from{translate:0 0}to{translate:0 -3px}}
+.pixel-walker .leg-a{transform-origin:13px 30px;animation:pixel-step .42s steps(2,end) infinite alternate}
+.pixel-walker .leg-b{transform-origin:23px 30px;animation:pixel-step .42s steps(2,end) infinite alternate-reverse}
+@keyframes pixel-step{from{transform:rotate(-18deg)}to{transform:rotate(18deg)}}
+@media(prefers-reduced-motion:reduce){.pixel-walker{display:none}}
