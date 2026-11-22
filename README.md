@@ -1,6 +1,6 @@
 <div align="center">
 
-# ABSOLAD
+# NAVANEETH KRISHNAN M R
 
 ### Aspiring Software Developer · BCA Student · Cybersecurity Enthusiast
 
