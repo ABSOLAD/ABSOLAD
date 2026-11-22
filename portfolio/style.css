@@ -29,13 +29,13 @@ body{position:relative;isolation:isolate;background:#0b0f14}
 
 
 /* Small white performance coupe cruising along the bottom */
-.bmw-runner{position:fixed;left:-165px;bottom:3px;width:150px;height:62px;display:block;z-index:6;cursor:pointer;animation:bmw-cruise 29s linear infinite;filter:drop-shadow(0 3px 3px rgba(0,0,0,.65))}
-.bmw-runner svg{position:absolute;right:0;bottom:0;width:150px;height:62px;overflow:visible;animation:bmw-suspension .22s ease-in-out infinite alternate}
+.bmw-runner{position:fixed;left:-110px;bottom:1px;width:100px;height:42px;display:block;z-index:6;cursor:pointer;animation:bmw-cruise 29s linear infinite;filter:drop-shadow(1px 2px 2px rgba(0,0,0,.65))}
+.bmw-runner svg{position:absolute;right:0;bottom:0;width:100px;height:42px;overflow:visible;animation:bmw-suspension .22s ease-in-out infinite alternate}
 .bmw-runner:focus-visible{outline:2px solid #fff;outline-offset:4px}
-.exhaust-flame{position:absolute;left:0;bottom:17px;width:16px;height:8px;background:linear-gradient(90deg,#ff3b16,#ffb52e,#fff0a0);clip-path:polygon(100% 0,100% 100%,0 50%);transform-origin:right center;animation:flame-pop .16s steps(2,end) infinite alternate;filter:drop-shadow(0 0 4px #ff642a)}
-.drift-smoke{position:absolute;left:-2px;bottom:9px;width:18px;height:13px;border-radius:50%;background:rgba(210,218,224,.58);filter:blur(5px);animation:smoke-puff 1.2s ease-out infinite}
-.smoke-b{left:8px;bottom:17px;width:14px;height:12px;animation-delay:.4s}.smoke-c{left:16px;bottom:7px;width:12px;height:10px;animation-delay:.8s}
-@keyframes bmw-cruise{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 190px))}}
+.exhaust-flame{position:absolute;left:0;bottom:11px;width:10px;height:5px;background:linear-gradient(90deg,#ff3b16,#ffb52e,#fff0a0);clip-path:polygon(100% 0,100% 100%,0 50%);transform-origin:right center;animation:flame-pop .16s steps(2,end) infinite alternate;filter:drop-shadow(0 0 3px #ff642a)}
+.drift-smoke{position:absolute;left:-2px;bottom:6px;width:12px;height:9px;border-radius:50%;background:rgba(210,218,224,.58);filter:blur(4px);animation:smoke-puff 1.2s ease-out infinite}
+.smoke-b{left:5px;bottom:11px;width:9px;height:8px;animation-delay:.4s}.smoke-c{left:10px;bottom:5px;width:8px;height:7px;animation-delay:.8s}
+@keyframes bmw-cruise{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 130px))}}to{transform:translateX(calc(100vw + 190px))}}
 @keyframes bmw-suspension{from{translate:0 0}to{translate:0 -1px}}
 @keyframes flame-pop{from{transform:scaleX(.65) scaleY(.8);opacity:.75}to{transform:scaleX(1.3) scaleY(1.15);opacity:1}}
 @keyframes smoke-puff{0%{transform:translate(0,0) scale(.45);opacity:0}20%{opacity:.55}100%{transform:translate(-34px,-22px) scale(2.1);opacity:0}}
