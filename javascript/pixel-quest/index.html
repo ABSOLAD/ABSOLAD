@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pixel Quest, a tiny browser platform game built with JavaScript and Canvas.">
+  <title>Pixel Quest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header><a class="back" href="https://github.com/ABSOLAD/ABSOLAD">← ABSOLAD</a><span class="label">A MINI PIXEL PLATFORMER</span></header>
+    <section class="game-card">
+      <div class="title-row"><div><p class="eyebrow">WORLD 01 · THE GREEN HILLS</p><h1>PIXEL QUEST</h1></div><div class="score-box">GEMS <strong id="score">0 / 5</strong></div></div>
+      <canvas id="game" width="960" height="540" aria-label="Pixel Quest game. Use arrow keys or A and D to move, space to jump."></canvas>
+      <div class="hud"><span id="status" aria-live="polite">Collect all 5 gems. Avoid the slimes!</span><button id="restart" type="button">RESTART ↻</button></div>
+      <div class="touch-controls" aria-label="Touch controls"><button data-key="left" aria-label="Move left">◀</button><button data-key="right" aria-label="Move right">▶</button><button data-key="jump" aria-label="Jump">JUMP</button></div>
+    </section>
+    <footer><span>MOVE: A / D OR ← / →</span><span>JUMP: SPACE / W / ↑</span><span>BUILT WITH HTML · CSS · JS</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
