@@ -31,3 +31,5 @@ jobs:
           path: portfolio
       - id: deployment
         uses: actions/deploy-pages@v4
+
+# Trigger a fresh full deployment so the upload and deploy steps share the same run attempt.
