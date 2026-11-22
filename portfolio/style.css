@@ -24,12 +24,19 @@ body{position:relative;isolation:isolate;background:#0b0f14}
 @media(prefers-reduced-motion:reduce){.background-video{display:none}}
 
 
-/* Tiny pixel hiker wandering across the mountain scene */
-.pixel-walker{position:fixed;left:-48px;bottom:18px;width:40px;height:50px;z-index:2;pointer-events:none;image-rendering:pixelated;animation:pixel-travel 32s linear infinite}
-.pixel-walker svg{width:100%;height:100%;image-rendering:pixelated;filter:drop-shadow(2px 3px 2px rgba(0,0,0,.55));animation:pixel-bob .42s steps(2,end) infinite alternate}
-@keyframes pixel-travel{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 100px))}}
-@keyframes pixel-bob{from{translate:0 0}to{translate:0 -3px}}
-.pixel-walker .leg-a{transform-origin:13px 30px;animation:pixel-step .42s steps(2,end) infinite alternate}
-.pixel-walker .leg-b{transform-origin:23px 30px;animation:pixel-step .42s steps(2,end) infinite alternate-reverse}
-@keyframes pixel-step{from{transform:rotate(-18deg)}to{transform:rotate(18deg)}}
-@media(prefers-reduced-motion:reduce){.pixel-walker{display:none}}
+
+
+/* Clickable sports car drifting across the bottom of the portfolio */
+.drift-car{position:fixed;left:-205px;bottom:24px;width:190px;height:92px;z-index:5;display:block;pointer-events:auto;animation:drift-cross 22s linear infinite;filter:drop-shadow(0 7px 8px rgba(0,0,0,.55))}
+.drift-car svg{position:absolute;right:0;bottom:0;width:180px;height:82px;overflow:visible;transform:rotate(-7deg);transform-origin:50% 75%;animation:car-slide .55s ease-in-out infinite alternate}
+.drift-car:hover svg{filter:drop-shadow(0 0 9px rgba(255,90,70,.7))}
+.car-hint{position:absolute;right:0;bottom:88px;white-space:nowrap;font:9px "DM Mono",monospace;letter-spacing:.1em;color:#fff;background:rgba(8,12,17,.8);padding:5px 8px;border:1px solid rgba(255,255,255,.2);border-radius:3px;opacity:0;transition:opacity .2s}
+.drift-car:hover .car-hint,.drift-car:focus-visible .car-hint{opacity:1}
+.tire-smoke{position:absolute;left:0;bottom:16px;width:22px;height:22px;border-radius:50%;background:rgba(225,232,238,.58);filter:blur(5px);animation:smoke-drift 1.5s ease-out infinite}
+.smoke-two{left:15px;bottom:24px;animation-delay:.45s;width:17px;height:17px}
+.smoke-three{left:28px;bottom:12px;animation-delay:.9s;width:14px;height:14px}
+@keyframes drift-cross{0%{transform:translateX(0) rotate(0)}15%{transform:translateX(18vw) rotate(-2deg)}30%{transform:translateX(38vw) rotate(3deg)}48%{transform:translateX(60vw) rotate(-3deg)}68%{transform:translateX(83vw) rotate(2deg)}100%{transform:translateX(calc(100vw + 220px)) rotate(0)}}
+@keyframes car-slide{from{translate:0 1px;rotate:-3deg}to{translate:0 -3px;rotate:3deg}}
+@keyframes smoke-drift{0%{transform:translate(0,0) scale(.5);opacity:0}25%{opacity:.55}100%{transform:translate(-38px,-28px) scale(2.2);opacity:0}}
+@media(hover:none){.car-hint{opacity:1}}
+@media(prefers-reduced-motion:reduce){.drift-car{animation:none;left:auto;right:18px}.drift-car svg,.tire-smoke{animation:none}.tire-smoke{display:none}}
