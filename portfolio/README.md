@@ -1,6 +1,6 @@
 # ABSOLAD Portfolio
 
-A responsive, static developer portfolio built with HTML, CSS and a tiny amount of JavaScript.
+A responsive static developer portfolio built with HTML, CSS and a small amount of JavaScript.
 
 ## Preview locally
 
@@ -8,10 +8,11 @@ Open `index.html` in a browser. No build tools or package installation are requi
 
 ## Publish with GitHub Pages
 
-1. Open the `ABSOLAD/ABSOLAD` repository on GitHub.
-2. Go to **Settings → Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select branch **main** and folder **/portfolio** if GitHub offers it as a source folder. If the Pages UI only offers the repository root, move/copy these three site files to the root or use a GitHub Actions workflow.
-5. Save and wait for the deployment URL shown in Pages settings.
+A GitHub Actions deployment workflow is included at `.github/workflows/pages.yml`.
 
-The site contains only public profile information and links to public project source code. Review content before publishing.
+1. Open the repository **Settings → Pages**.
+2. Under **Build and deployment → Source**, select **GitHub Actions**.
+3. The workflow will deploy the `portfolio/` folder automatically on the next change to the portfolio files, or you can run it from the **Actions** tab.
+4. After deployment, GitHub will show the public site URL in **Settings → Pages**.
+
+The site contains public profile information and links to public project source code. Review content before publishing.
